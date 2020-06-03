@@ -26,7 +26,7 @@ author = u'Paweł Domański'
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'1.1'
+release = u'1.1.'
 
 
 # -- General configuration ---------------------------------------------------
@@ -72,7 +72,7 @@ language = u'pl'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
@@ -193,5 +193,3 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
-
-html_baseurl = doc.dexterlab.pl
