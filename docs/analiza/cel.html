@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="pl" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pl" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cel pracy &mdash; CMS-Dokumentacja 1.1. - dokumentacja</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CMS-Dokumentacja
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Cel pracy</a><ul>
+<li><a class="reference internal" href="#oprogramowanie">Oprogramowanie:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CMS-Dokumentacja</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Cel pracy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/analiza/cel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cel-pracy">
+<h1>Cel pracy<a class="headerlink" href="#cel-pracy" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Celem pracy jest dostarczenie aplikacji do zarządzania artykułami dla wydawnictwa, a także projekt systemu który będzie wysoko wydajny i skalowalny.</p>
+<p>Większość dostępnego oprogramowania do zarządzania treścią oparte jest o zestaw aplikacji napisanej w PHP (WordPress) działającą o bazę lub klony baz typu MySQL. O ile w przypadkach serwisów działających w niedużych skalach to takie połączenie nie stanowi większego problemu jednak w przypadku dużych rozwiązań implikuje to różnego rodzaju problemy takie jak brak możliwości skalowania, duża złożoność wdrażania zmian, a także wyzwiana związane z relacyjnością. W przypadku budowy CMS opertego o aplikacje zbudowane w klastrach kubernates i użyciu baz dokumentowych (w tym przypadku MongoDB) możliwe jest budowanie bardzo skalowalnych środowisk gdzie właściwie nie ma ograniczeń. Dodatkowo prezentowane rozwiązanie umożliwia wdrażanie zmian bez impaktu na uzytkowników. Poniżej opisane rozwiązanie bazując na bazie DocumentDB tak naprawdę nie posiada własnego schematu więc wszelkie zmiany dokumentów mogą być wprowadzane dla nowych dokumentów a zmiany są wprowadzane dla nowych dokumentów. W przypadku serwerów aplikacyjnych, tworzenie nowych instancji aplikacji może być wdrażane „z boku” i testowanie aplikacji i zmian tylko dl określonych użytkowników.</p>
+<p>Na rynku jest mało podobnych rozwiązań, a istniejące oprogramowanie niestety to platformy do budowy środowisk.</p>
+<div class="section" id="oprogramowanie">
+<h2>Oprogramowanie:<a class="headerlink" href="#oprogramowanie" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>[<a class="reference external" href="https://www.keystonejs.com/">https://www.keystonejs.com/</a>] -&gt; oprogramowanie działające na NodeJS i jest to platforma do budowy środowisk. Posiada współpracę z GraphQL.</p>
+<p>[<a class="reference external" href="https://strapi.io/">https://strapi.io/</a>] -&gt; Właściwie jest to narzędzie dla programistów pozwalające zbudować rozwiązanie CMS.</p>
+<p>[<a class="reference external" href="https://www.endurojs.com/">https://www.endurojs.com/</a>] -&gt; Owszem jest na Node.Js ale jest oparty na plikach płaskich bez bazy danych.</p>
+<p>[<a class="reference external" href="https://www.totaljs.com/">https://www.totaljs.com/</a>] -&gt; Oparty jest na wbudowanym silniku NoSQL</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Paweł Domański
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
