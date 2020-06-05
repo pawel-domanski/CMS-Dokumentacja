@@ -28,3 +28,5 @@ CMS Frontend
 
 Środowisko produkcyjne
 ----------------------
+
+** konfiguracja GitLab
