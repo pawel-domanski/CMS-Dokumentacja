@@ -30,3 +30,5 @@ CMS Frontend
 ----------------------
 
 ** konfiguracja GitLab
+
+:)
