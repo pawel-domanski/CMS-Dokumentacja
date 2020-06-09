@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Instrukcja instalacji &mdash; CMS-Dokumentacja 1.1. - dokumentacja</title>
+  <title>Środowisko testowe &mdash; CMS-Dokumentacja latest - dokumentacja</title>
   
 
   
@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indeks" href="../../genindex.html" />
-    <link rel="search" title="Szukaj" href="../../search.html" /> 
+    <link rel="search" title="Szukaj" href="../../search.html" />
+    <link rel="next" title="Książki" href="../../bibliografia.html" />
+    <link rel="prev" title="Diagram przypadków użycia" href="../../analiza/diagram_przypadkow_uzycia.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -57,6 +59,10 @@
 
           
             
+            
+              <div class="version">
+                1.2
+              </div>
             
           
 
@@ -82,6 +88,24 @@
               <p class="caption"><span class="caption-text">Analiza</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../analiza/index.html">Analiza</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Instalacja systemu</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Środowisko testowe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#srodowisko-produkcyjne">Środowisko produkcyjne</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">:)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instrukcja-instalacji">Instrukcja instalacji</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#infrastruktura">Infrastruktura</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#github">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Środowisko testowe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id3">Środowisko produkcyjne</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Bibliografia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliografia.html">Książki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliografia.html#artykuly">Artykuły</a></li>
 </ul>
 
             
@@ -127,7 +151,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Instrukcja instalacji</li>
+      <li>Środowisko testowe</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -146,10 +170,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="instrukcja-instalacji">
-<h1>Instrukcja instalacji<a class="headerlink" href="#instrukcja-instalacji" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<div class="section" id="srodowisko-testowe">
-<h2>Środowisko testowe<a class="headerlink" href="#srodowisko-testowe" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+  <div class="section" id="srodowisko-testowe">
+<h1>Środowisko testowe<a class="headerlink" href="#srodowisko-testowe" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>Środowisko testowe ze względu na to że nie wymaga takiej wysokiej dostępności co środowisko preodukcyjne nie ma także konieczności żeby był zastosowany klaster Kubernetesa i MongoDB ustawione w shardeningu.</p>
 <p>### Baza danych</p>
 <p>MongoDB</p>
@@ -164,9 +186,64 @@ bbbb.sh - (do utworzenia) skrypt tworzący przykłądowe wpisy do bazy dla aplik
 </div>
 <hr class="docutils" />
 <div class="section" id="srodowisko-produkcyjne">
-<h2>Środowisko produkcyjne<a class="headerlink" href="#srodowisko-produkcyjne" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>** konfiguracja GitLab</p>
+<h1>Środowisko produkcyjne<a class="headerlink" href="#srodowisko-produkcyjne" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>## konfiguracja GitLab</p>
+<div class="section" id="id1">
+<h2>:)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 </div>
+<div class="section" id="instrukcja-instalacji">
+<h2>Instrukcja instalacji<a class="headerlink" href="#instrukcja-instalacji" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+</div>
+</div>
+<div class="section" id="infrastruktura">
+<h1>Infrastruktura<a class="headerlink" href="#infrastruktura" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Oprogramowanie działa na serwerach wirtualnych działających w chmurze obliczeniowej. Celowo korzystam z kilku niezależnych dostawców aby zaproponować wszechstronność i zwinne podejscie o tematu jakim jest wysoka dostępność systemu zarządzania treścią. Pomiędzy sieciami jest utworzona reguła firewall i możliwość logowania się do poszczególnych części jest zabezpieczony.</p>
+<p>Podzielona jest na dwie części. Pierwsza część działająca chmurze obliczeniowej Digital Ocean i są to:</p>
+<p>Serwer (droplet) z systemem operacyjnym Debian.
+1 GB Memory / 25 GB Disk / FRA1 - Ubuntu 18.04.3 (LTS) x64</p>
+<p>Na serwerze jest zainstalowany Docker.</p>
+<p>Działające usługi w ramach Docker:</p>
+<p><strong>portainer</strong> - oprogramowanie do zarządzania kontenerami w chmurze publicznej dla projektu.</p>
+<p>Adres do zarządzania <a class="reference external" href="https://cloud.dexterlab.pl/">https://cloud.dexterlab.pl/</a>
+Do zalogowania jest potrzebne konto zakładane przez administratora systemu.</p>
+<p>Dostęp do zasobów znajdujących się na serwerze realizowany jest przez serwer Ngnix.</p>
+<p>TODO: Dopisać jak jest realizowany dostęp i jak zakłada się Endpoint na serwerze.</p>
+<p>Informacja dotycząca endpointów.</p>
+<div class="figure">
+<img alt="Lista endpointów" src="../../_images/Portainer_01.png" />
+</div>
+<p>Informacja o aplikacjach (obrazów Docker) na serwerze.</p>
+<div class="figure">
+<img alt="Lista obrazów Docker na endpoint." src="../../_images/Portainer_02.png" />
+</div>
+<p><strong>registry</strong> - rejestr DOckera na potrzeby projektu. Rejestr <em>Docker</em> jest zabezpieczony hasłem żeby osoby niepowołane nie mogły się zalobować.</p>
+<p><strong>dexterlab_pl</strong> - strona internetowa projektu oparta na systemie CMS Ghost.</p>
+<p>Serwer (droplet) z systemem operacyjnym Debian.</p>
+<p>1 GB Memory / 25 GB Disk / FRA1 - Ubuntu 18.04.3 (LTS) x64</p>
+<p>Na serwerze jest zainstalowany Docker.</p>
+<p>Maszyna jest odpoweidzialna za zarządzanie kodem żródłowym poprzez oprogramowanie GitLab. Zainstalowana jest wersja Community Edition dostępna pod adresem <a class="reference external" href="https://git.dexterlab.pl/">https://git.dexterlab.pl/</a> Dostęp realizowany jest przez konta wewnętrzne systemu i zakładane są przez administratora systemu.</p>
+</div>
+<div class="section" id="github">
+<h1>GitHub<a class="headerlink" href="#github" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Dokumentacja do projektu jest zamieszczona na GitHub Pages i można przeczytać pod adresem <a class="reference external" href="https://doc.dexterlab.pl/">https://doc.dexterlab.pl/</a></p>
+</div>
+<div class="section" id="id2">
+<h1>Środowisko testowe<a class="headerlink" href="#id2" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Środowisko testowe ze względu na to że nie wymaga takiej wysokiej dostępności co środowisko preodukcyjne nie ma także konieczności żeby był zastosowany klaster Kubernetesa i MongoDB ustawione w shardeningu. Wszystkie serwery do pracy dla projektu znajdują się w Google Cloud i analogicznie jak w przypadku infrastruktury całość jest oparta o serwery wirtualne z systemem Linux.</p>
+<p>MongoDB</p>
+<p>Baza danych w tym przypadku użyta wersja Community i uruchomiona jako serwer standalone. Aby utworzyć instancję nalezy użyć wcześniej przygotowanego pliku dla Docker compose. Plik zawiera poniższe informacje:</p>
+<p>…</p>
+<p>Po utworzeniu instancji należy zalogować się do kontenera przejść do katalogu script i pokolei uruchomić skrypty
+aaaa.sh - skrypt założy dla nas odpowiednich użytkowników, bazy danych wraz z wymaganymi uprawnieniami.
+bbbb.sh - (do utworzenia) skrypt tworzący przykłądowe wpisy do bazy dla aplikacji.</p>
+<p>CMS Api</p>
+<p>…</p>
+<p>CMS Frontend</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id3">
+<h1>Środowisko produkcyjne<a class="headerlink" href="#id3" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>### konfiguracja GitLab</p>
 </div>
 
 
@@ -174,6 +251,15 @@ bbbb.sh - (do utworzenia) skrypt tworzący przykłądowe wpisy do bazy dla aplik
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../bibliografia.html" class="btn btn-neutral float-right" title="Książki" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../analiza/diagram_przypadkow_uzycia.html" class="btn btn-neutral float-left" title="Diagram przypadków użycia" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

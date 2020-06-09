@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-Instrukcja instalacji 
-=====================
-
-Środowisko testowe
-------------------
-
-Środowisko testowe ze względu na to że nie wymaga takiej wysokiej dostępności co środowisko preodukcyjne nie ma także konieczności żeby był zastosowany klaster Kubernetesa i MongoDB ustawione w shardeningu.
-
-### Baza danych
-
-MongoDB 
-
-Baza danych w tym przypadku użyta wersja COmmunity i uruchomiona jako serwer standalone. Aby utworzyć instancję nalezy użyć wcześniej przygotowanego pliku dla Docker compose. Plik zawiera poniższe informacje:
-
-...
-
-Po utworzeniu instancji należy zalogować się do kontenera przejść do katalogu script i pokolei uruchomić skrypty 
-aaaa.sh - skrypt założy dla nas odpowiednich użytkowników, bazy danych wraz z wymaganymi uprawnieniami.
-bbbb.sh - (do utworzenia) skrypt tworzący przykłądowe wpisy do bazy dla aplikacji.
-
-CMS Api
-
-...
-
-CMS Frontend
-
-....
-
-Środowisko produkcyjne
-----------------------
-
-** konfiguracja GitLab
-
-:)
-=======
 Instrukcja instalacji 
 =====================
 
@@ -42,10 +6,13 @@ Infrastruktura
 
 Oprogramowanie działa na serwerach wirtualnych działających w chmurze obliczeniowej. Celowo korzystam z kilku niezależnych dostawców aby zaproponować wszechstronność i zwinne podejscie o tematu jakim jest wysoka dostępność systemu zarządzania treścią. Pomiędzy sieciami jest utworzona reguła firewall i możliwość logowania się do poszczególnych części jest zabezpieczony.
 
-Podzielona jest na dwie części. Pierwsza część działająca chmurze obliczeniowej Digital Ocean i są to:
+Podzielona jest na dwie części. 
+
+Środowisko Digital Ocean (Frannkfurt)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ubuntu-s-1vcpu-1gb-fra1-01
-++++++++++++++++++++++++++
+""""""""""""""""""""""""""
 
 Serwer (droplet) z systemem operacyjnym Debian. 
 1 GB Memory / 25 GB Disk / FRA1 - Ubuntu 18.04.3 (LTS) x64
@@ -65,20 +32,23 @@ TODO: Dopisać jak jest realizowany dostęp i jak zakłada się Endpoint na serw
 
 Informacja dotycząca endpointów.
 
-[Lista wszystkich endpointów](/doc_tech/env/images/Portainer_01.png)
+.. figure:: /dok_tech/images/Portainer_01.png
+    :alt: Lista endpointów
+
 
 Informacja o aplikacjach (obrazów Docker) na serwerze. 
 
-[Lista wszystkich endpointów](/doc_tech/env/images/Portainer_02.png)
+.. figure:: /dok_tech/images/Portainer_02.png
+    :alt: Lista obrazów Docker na endpoint.
 
 
-**registry** - rejestr DOckera na potrzeby projektu. Rejestr *Docker* jest zabezpieczony hasłem żeby osoby niepowołane nie mogły się zalobować.
+**registry** - rejestr Dockera na potrzeby projektu. Rejestr *Docker* jest zabezpieczony hasłem żeby osoby niepowołane nie mogły się zalobować.
 
 **dexterlab_pl** - strona internetowa projektu oparta na systemie CMS Ghost. 
 
 
 ubuntu-s-1vcpu-1gb-fra1-02
-++++++++++++++++++++++++++
+""""""""""""""""""""""""""
 
 Serwer (droplet) z systemem operacyjnym Debian. 
 
@@ -89,37 +59,25 @@ Na serwerze jest zainstalowany Docker.
 Maszyna jest odpoweidzialna za zarządzanie kodem żródłowym poprzez oprogramowanie GitLab. Zainstalowana jest wersja Community Edition dostępna pod adresem https://git.dexterlab.pl/ Dostęp realizowany jest przez konta wewnętrzne systemu i zakładane są przez administratora systemu.
 
 GitHub
-------
+""""""
 Dokumentacja do projektu jest zamieszczona na GitHub Pages i można przeczytać pod adresem https://doc.dexterlab.pl/
+TODO: Dopisać instrukcję instalacji i kjonfiguracji GitLab'a
 
-Środowisko testowe
-------------------
 
-Środowisko testowe ze względu na to że nie wymaga takiej wysokiej dostępności co środowisko preodukcyjne nie ma także konieczności żeby był zastosowany klaster Kubernetesa i MongoDB ustawione w shardeningu. Wszystkie serwery do pracy dla projektu znajdują się w Google Cloud i analogicznie jak w przypadku infrastruktury całość jest oparta o serwery wirtualne z systemem Linux.
+Środowisko Google Cloud Platform 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Baza danych
-+++++++++++
+W Google Cloud Platform znajduje się całość aplikacji zarówno środowiska testowe jak i aplikacji. Całość ma połączenie pomiędzy prywatnymi sieciami w celu zachowania odpowiedniego bezpieczeństwa.
 
-MongoDB 
+instance-1
+""""""""""
 
-Baza danych w tym przypadku użyta wersja Community i uruchomiona jako serwer standalone. Aby utworzyć instancję nalezy użyć wcześniej przygotowanego pliku dla Docker compose. Plik zawiera poniższe informacje:
+Maszyna z systemem opracyjnym Debian 
 
-...
+1,7 GB Memory / 10 GB Disk / europe-west3-c - Ubuntu 18.04.3 (LTS) x64
 
-Po utworzeniu instancji należy zalogować się do kontenera przejść do katalogu script i pokolei uruchomić skrypty 
-aaaa.sh - skrypt założy dla nas odpowiednich użytkowników, bazy danych wraz z wymaganymi uprawnieniami.
-bbbb.sh - (do utworzenia) skrypt tworzący przykłądowe wpisy do bazy dla aplikacji.
+Na instancji zainstalowany jest Docker.
 
-CMS Api
+Maszyna będzie odpowiedzialna za hostowanie środowisk testowych bez użycia wysokiej dostępności i skalowalności.
 
-...
-
-CMS Frontend
-
-....
-
-Środowisko produkcyjne
-----------------------
-
-** konfiguracja GitLab
->>>>>>> 2770b05c9b524bc26febb6a59095adfe7207cd26
+TODO: Instrukcja instalacji środowiska testowego. Dla Mongo. Sprawdzić czy nie można podłączyć gitlaba do GCP żeby mógł klonować maszyny. Mongo może być przecież spreparowane na nasze potrzeby i zapisana w naszym rejestrze :) Nie musimy za kaym razem korzystać z sieciowej wersji bazy danych. Ba możemy nawet załadować specjalne dane, żeby już były załadowane. 
