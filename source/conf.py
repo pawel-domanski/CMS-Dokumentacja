@@ -24,7 +24,7 @@ copyright = u'2020, Paweł Domański'
 author = u'Paweł Domański'
 
 # The short X.Y version
-version = u'1.2'
+version = u'1.2.1'
 # The full version, including alpha/beta/rc tags
 release = u'latest'
 
