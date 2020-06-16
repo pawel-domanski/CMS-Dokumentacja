@@ -8,16 +8,20 @@ Większość dostępnego oprogramowania do zarządzania treścią oparte jest o 
 Na rynku jest mało podobnych rozwiązań, a istniejące oprogramowanie niestety to platformy do budowy środowisk. 
 
 
-Oprogramowanie:
+Dostępne przykładowe rozwiązania
 ---------------
 
-[https://www.keystonejs.com/] -> oprogramowanie działające na NodeJS i jest to platforma do budowy środowisk. Posiada współpracę z GraphQL.
+
+KeystoneJS
+
+https://www.keystonejs.com/ -> oprogramowanie działające na NodeJS i jest to platforma do budowy środowisk. Posiada współpracę z GraphQL. Skierowane jest raczej do bardzo małych instytucji gdzie nie ma dużych wymagań co do wydajności systemu
 
 
-[https://strapi.io/] -> Właściwie jest to narzędzie dla programistów pozwalające zbudować rozwiązanie CMS.
+Strapi 
+
+https://strapi.io/ -> Właściwie jest to narzędzie dla programistów pozwalające zbudować rozwiązanie CMS. Posiada już także gotowe środowisko do zarządzania treścią ale jest ono oparte na bazie PostgreSQL.
 
 
-[https://www.endurojs.com/] -> Owszem jest na Node.Js ale jest oparty na plikach płaskich bez bazy danych.
+Total.js
 
-
-[https://www.totaljs.com/] -> Oparty jest na wbudowanym silniku NoSQL
+https://www.totaljs.com/ -> Jest to właściwie framework w skład którego wchodzą takie narzędzia jak Blog Engine czy CMS. Ma wbudowany już system baz danych i w środowisku OnPremise niestety może nie być skalowalny. 

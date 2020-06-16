@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.2
+                1.2.1
               </div>
             
           
@@ -90,7 +90,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Analiza</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="wstep.html">Wstęp</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Cel pracy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#oprogramowanie">Oprogramowanie:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dostepne-przykladowe-rozwiazania">Dostępne przykładowe rozwiązania</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kontekst.html">Kontekst</a></li>
@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="wymagania_niefunkcjonalne.html">Wymagania niefunkcjonalne</a></li>
 <li class="toctree-l2"><a class="reference internal" href="diagram_zwiazkow_encji.html">Diagram związków encji</a></li>
 <li class="toctree-l2"><a class="reference internal" href="diagram_przypadkow_uzycia.html">Diagram przypadków użycia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="harmonogram.html">Harmonogram</a></li>
 </ul>
 </li>
 </ul>
@@ -182,12 +183,14 @@
 <p>Celem pracy jest dostarczenie aplikacji do zarządzania artykułami dla wydawnictwa, a także projekt systemu który będzie wysoko wydajny i skalowalny.</p>
 <p>Większość dostępnego oprogramowania do zarządzania treścią oparte jest o zestaw aplikacji napisanej w PHP (WordPress) działającą o bazę lub klony baz typu MySQL. O ile w przypadkach serwisów działających w niedużych skalach to takie połączenie nie stanowi większego problemu jednak w przypadku dużych rozwiązań implikuje to różnego rodzaju problemy takie jak brak możliwości skalowania, duża złożoność wdrażania zmian, a także wyzwiana związane z relacyjnością. W przypadku budowy CMS opertego o aplikacje zbudowane w klastrach kubernates i użyciu baz dokumentowych (w tym przypadku MongoDB) możliwe jest budowanie bardzo skalowalnych środowisk gdzie właściwie nie ma ograniczeń. Dodatkowo prezentowane rozwiązanie umożliwia wdrażanie zmian bez impaktu na uzytkowników. Poniżej opisane rozwiązanie bazując na bazie DocumentDB tak naprawdę nie posiada własnego schematu więc wszelkie zmiany dokumentów mogą być wprowadzane dla nowych dokumentów a zmiany są wprowadzane dla nowych dokumentów. W przypadku serwerów aplikacyjnych, tworzenie nowych instancji aplikacji może być wdrażane „z boku” i testowanie aplikacji i zmian tylko dl określonych użytkowników.</p>
 <p>Na rynku jest mało podobnych rozwiązań, a istniejące oprogramowanie niestety to platformy do budowy środowisk.</p>
-<div class="section" id="oprogramowanie">
-<h2>Oprogramowanie:<a class="headerlink" href="#oprogramowanie" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>[<a class="reference external" href="https://www.keystonejs.com/">https://www.keystonejs.com/</a>] -&gt; oprogramowanie działające na NodeJS i jest to platforma do budowy środowisk. Posiada współpracę z GraphQL.</p>
-<p>[<a class="reference external" href="https://strapi.io/">https://strapi.io/</a>] -&gt; Właściwie jest to narzędzie dla programistów pozwalające zbudować rozwiązanie CMS.</p>
-<p>[<a class="reference external" href="https://www.endurojs.com/">https://www.endurojs.com/</a>] -&gt; Owszem jest na Node.Js ale jest oparty na plikach płaskich bez bazy danych.</p>
-<p>[<a class="reference external" href="https://www.totaljs.com/">https://www.totaljs.com/</a>] -&gt; Oparty jest na wbudowanym silniku NoSQL</p>
+<div class="section" id="dostepne-przykladowe-rozwiazania">
+<h2>Dostępne przykładowe rozwiązania<a class="headerlink" href="#dostepne-przykladowe-rozwiazania" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>KeystoneJS</p>
+<p><a class="reference external" href="https://www.keystonejs.com/">https://www.keystonejs.com/</a> -&gt; oprogramowanie działające na NodeJS i jest to platforma do budowy środowisk. Posiada współpracę z GraphQL. Skierowane jest raczej do bardzo małych instytucji gdzie nie ma dużych wymagań co do wydajności systemu</p>
+<p>Strapi</p>
+<p><a class="reference external" href="https://strapi.io/">https://strapi.io/</a> -&gt; Właściwie jest to narzędzie dla programistów pozwalające zbudować rozwiązanie CMS. Posiada już także gotowe środowisko do zarządzania treścią ale jest ono oparte na bazie PostgreSQL.</p>
+<p>Total.js</p>
+<p><a class="reference external" href="https://www.totaljs.com/">https://www.totaljs.com/</a> -&gt; Jest to właściwie framework w skład którego wchodzą takie narzędzia jak Blog Engine czy CMS. Ma wbudowany już system baz danych i w środowisku OnPremise niestety może nie być skalowalny.</p>
 </div>
 </div>
 

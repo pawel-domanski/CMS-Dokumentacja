@@ -18,3 +18,4 @@ Analiza
    wymagania_niefunkcjonalne
    diagram_zwiazkow_encji
    diagram_przypadkow_uzycia
+   harmonogram
