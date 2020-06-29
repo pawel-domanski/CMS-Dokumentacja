@@ -1,5 +1,11 @@
-Cel pracy
-=========
+---
+layout: page
+title:  "Cel pracy"
+date:   2020-05-30 13:57:55 +0200
+categories: ana
+---
+### Cel pracy
+
 
 Celem pracy jest dostarczenie aplikacji do zarządzania artykułami dla wydawnictwa, a także projekt systemu który będzie wysoko wydajny i skalowalny. 
 
@@ -8,8 +14,8 @@ Większość dostępnego oprogramowania do zarządzania treścią oparte jest o 
 Na rynku jest mało podobnych rozwiązań, a istniejące oprogramowanie niestety to platformy do budowy środowisk. 
 
 
-Dostępne przykładowe rozwiązania
----------------
+### Dostępne przykładowe rozwiązania
+
 
 
 KeystoneJS

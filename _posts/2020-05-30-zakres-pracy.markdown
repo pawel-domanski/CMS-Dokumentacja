@@ -1,10 +1,11 @@
-.. System Zarządzania Treścią documentation master file, created by
-   sphinx-quickstart on Wed May 27 11:02:55 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+---
+layout: page
+title:  "Zakres pracy"
+date:   2020-05-30 13:57:55 +0200
+categories: ana
+---
+### Zakres
 
-Zakres
-==========
 
 
 W zakresie pracy jest:

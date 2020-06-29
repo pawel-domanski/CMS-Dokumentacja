@@ -1,8 +1,14 @@
-Instrukcja instalacji 
-=====================
+---
+layout: page
+title:  "Instalacja infrastruktury"
+date:   2020-05-30 13:57:55 +0200
+categories: doc
+---
+### Instrukcja instalacji 
 
-Infrastruktura
---------------
+
+## Infrastruktura
+
 
 Oprogramowanie działa na serwerach wirtualnych działających w chmurze obliczeniowej. Celowo korzystam z kilku niezależnych dostawców aby zaproponować wszechstronność i zwinne podejscie o tematu jakim jest wysoka dostępność systemu zarządzania treścią. Pomiędzy sieciami jest utworzona reguła firewall i możliwość logowania się do poszczególnych części jest zabezpieczony.
 
@@ -32,15 +38,12 @@ TODO: Dopisać jak jest realizowany dostęp i jak zakłada się Endpoint na serw
 
 Informacja dotycząca endpointów.
 
-.. figure:: /dok_tech/images/Portainer_01.png
-    :alt: Lista endpointów
 
+![Portainer 01](/assets/Portainer_01.png)
 
 Informacja o aplikacjach (obrazów Docker) na serwerze. 
 
-.. figure:: /dok_tech/images/Portainer_02.png
-    :alt: Lista obrazów Docker na endpoint.
-
+![Portainer 02](/assets/Portainer_02.png)
 
 **registry** - rejestr Dockera na potrzeby projektu. Rejestr *Docker* jest zabezpieczony hasłem żeby osoby niepowołane nie mogły się zalobować.
 

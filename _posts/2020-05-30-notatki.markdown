@@ -1,3 +1,10 @@
+---
+layout: page
+title:  "Notatki"
+date:   2020-05-30 13:57:55 +0200
+categories: ana
+---
+
 # Wysoka dostępność – realizacja poprzez utworzenie klastra kubernates i MongoDB
 
 Co pod tym będziemy rozumieć? 
