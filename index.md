@@ -1,6 +1,10 @@
 ---
-layout: default
-title: "Jekyll Docs Template"
+title: "Dokumentacja retechniczna do projektu"
+keywords: sample homepage
+tags: [getting_started]
+sidebar: mydoc_sidebar
+permalink: index.html
+summary: Niniejsza dokumentacja stanowi część pracy iżynierskiej na Polsko-Japońskiej Akademii Nauk Komputerowych.
 ---
 
 ### Opis pomysłu pracy dyplomowej
