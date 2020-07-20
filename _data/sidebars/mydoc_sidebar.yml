@@ -3,7 +3,7 @@
 entries:
 - title: sidebar
   product: Dokumentacja techniczna
-  version: 1.3.2
+  version: 1.2
   folders:
 
   - title:
@@ -54,6 +54,18 @@ entries:
 
     - title: Aktorzy systemu
       url: /analiza_aktorzy.html
+      output: web, pdf
+  
+  - title: Projekt techniczny
+    output: web, pdf
+    folderitems:
+
+    - title: Wybór technologii
+      url: /technologia_intro.html
+      output: web, pdf
+
+    - title: Baza danych
+      url: /technologia_db.html
       output: web, pdf
 
   - title: Instalacja
