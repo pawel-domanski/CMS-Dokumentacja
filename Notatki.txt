@@ -1,0 +1,31 @@
+CKEditor - plugin do edytowania tekstów. W łatwy sposób formatuje tekst a następnie zapisuje wynik atrybutu do formatu HtML.
+Źródło:
+https://ckeditor.com/docs/ckeditor5/latest/index.html 
+
+Plugin do obsługi Keywordsów
+https://github.com/robrogers3/vue-simple-multi-select
+
+Plugin do ładowania danych do API 
+https://github.com/dflourusso/v-file-upload
+
+Ładny wzór do opisywania bazy danych.
+https://hackolade.com/schemas/Yelp_Challenge_dataset_documentation.html
+
+Modelowanie baz danych MongoDB
+
+https://docs.mongodb.com/manual/core/data-modeling-introduction/
+
+
+Dokeryzacja Vue
+https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html
+
+
+Do pytań egzaminacyjnych
+https://www.sqlpedia.pl/projektowanie-i-normalizacja-bazy-danych/
+http://zasoby.open.agh.edu.pl/~09seenglert/index6791.html?category=podstawy&menu=6&language=PL
+http://edu.pjwstk.edu.pl/wyklady/rbd/scb/rW5.htm
+
+Deploy używając GitLab
+https://blog.logrocket.com/how-to-auto-deploy-a-vue-application-using-gitlab-ci-cd-on-ubuntu/
+https://medium.com/@adhasmana/how-to-deploy-node-js-app-on-aws-with-gitlab-24fabde1088d
+https://circleci.com/docs/2.0/
