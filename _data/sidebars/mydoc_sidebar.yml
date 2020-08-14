@@ -3,7 +3,7 @@
 entries:
 - title: sidebar
   product: Dokumentacja techniczna
-  version: 1.2
+  version: 1.7
   folders:
 
   - title:
@@ -39,10 +39,6 @@ entries:
     - title: Zakres pracy
       url: /analiza_zakres.html
       output: web, pdf
-
-    - title: Notatki
-      url: /analiza_notatki.html
-      output: web, pdf
     
     - title: Wymagania funkcjonalne
       url: /analiza_funkcjonalne.html
@@ -55,7 +51,15 @@ entries:
     - title: Aktorzy systemu
       url: /analiza_aktorzy.html
       output: web, pdf
-  
+
+    - title: Diagram związków encji
+      url: /analiza_encje.html
+      output: web, pdf
+
+    - title: Diagram przypadków użycia
+      url: /analiza_przypadki.html
+      output: web, pdf
+    
   - title: Projekt techniczny
     output: web, pdf
     folderitems:
@@ -74,6 +78,21 @@ entries:
 
     - title: Instalacja infrastruktury
       url: /inst_infra.html
+      output: web, pdf
+    
+    - title: Instalacja środowiska testowego
+      url: /inst_uat.html
+      output: web, pdf
+
+  - title: Dokumentacja dla użytkowników
+    output: web, pdf
+    folderitems:
+
+    - title: Aplikacja FrontEnd dla klientów
+      url: /docs_frontend.html
+      output: web, pdf
+    - title: Aplikacja BackEnd dla redaktorów i administratorów
+      url: /docs_backend.html
       output: web, pdf
 
   - title: Zakończenie

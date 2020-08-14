@@ -8,40 +8,30 @@ sidebar: mydoc_sidebar
 permalink: inst_infra.html
 folder: insta
 ---
-### Instrukcja instalacji 
+# Instrukcja instalacji 
 
 
 ## Infrastruktura
 
 
-Oprogramowanie działa na serwerach wirtualnych działających w chmurze obliczeniowej. Celowo korzystam z kilku niezależnych dostawców aby zaproponować wszechstronność i zwinne podejscie o tematu jakim jest wysoka dostępność systemu zarządzania treścią. Pomiędzy sieciami jest utworzona reguła firewall i możliwość logowania się do poszczególnych części jest zabezpieczony.
+Oprogramowanie działa na serwerach wirtualnych działających w chmurze obliczeniowej. Celowo korzystam z kilku niezależnych dostawców aby zaproponować wszechstronność i zwinne podejscie o tematu jakim jest wysoka dostępność systemu zarządzania treścią. Pomiędzy sieciami jest utworzona reguła firewall i możliwość logowania się do poszczególnych części jest zabezpieczony. Dodakowo użycie różnych dostawców sprawia, że nie jesteśmy uzależnieni wyłącznie z jednego tylko miejsca.
 
-Podzielona jest na dwie części. 
+### Infrastruktura
 
-Środowisko Digital Ocean (Frannkfurt)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ubuntu-s-1vcpu-1gb-fra1-01
-""""""""""""""""""""""""""
+#### Środowisko oparte na dropletach na Digital Ocean
 
-Serwer (droplet) z systemem operacyjnym Debian. 
-1 GB Memory / 25 GB Disk / FRA1 - Ubuntu 18.04.3 (LTS) x64
+**ubuntu-s-1vcpu-1gb-fra1-02** - środowisko do testów, na którym można trenować wszystkoe możliwe kombinacje do projektu.
+![ubuntu-s-1vcpu-1gb-fra1-02](/images/insta/inst_infra_01.png)
+    
 
-Na serwerze jest zainstalowany Docker.
-
+**ubuntu-s-1vcpu-1gb-fra1-01** - Maszyna na której znajduje się
+    
 Działające usługi w ramach Docker:
-
-**portainer** - oprogramowanie do zarządzania kontenerami w chmurze publicznej dla projektu. 
-
+    
+**portainer** - oprogramowanie do zarządzania kontenerami w chmurze publicznej dla projektu.
 Adres do zarządzania https://cloud.dexterlab.pl/
 Do zalogowania jest potrzebne konto zakładane przez administratora systemu.
-
-Dostęp do zasobów znajdujących się na serwerze realizowany jest przez serwer Ngnix.
-
-TODO: Dopisać jak jest realizowany dostęp i jak zakłada się Endpoint na serwerze.
-
-Informacja dotycząca endpointów.
-
 
 ![Portainer 01](/images/insta/Portainer_01.png)
 
@@ -54,36 +44,35 @@ Informacja o aplikacjach (obrazów Docker) na serwerze.
 **dexterlab_pl** - strona internetowa projektu oparta na systemie CMS Ghost. 
 
 
-ubuntu-s-1vcpu-1gb-fra1-02
-""""""""""""""""""""""""""
+Dostęp do zasobów znajdujących się na serwerze realizowany jest przez serwer Ngnix.
 
-Serwer (droplet) z systemem operacyjnym Debian. 
+Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x64. Na każdej maszynie zainstalowany jest Docker.
 
-1 GB Memory / 25 GB Disk / FRA1 - Ubuntu 18.04.3 (LTS) x64
+#### Środowisko Google Cloud Platform
 
-Na serwerze jest zainstalowany Docker.
+**instance-1** - naszyna, na któej zainstalowane jest oprogramowanie CMS do testów.
+![instance-1](/images/insta/inst_infra_02.png)
 
-Maszyna jest odpoweidzialna za zarządzanie kodem żródłowym poprzez oprogramowanie GitLab. Zainstalowana jest wersja Community Edition dostępna pod adresem https://git.dexterlab.pl/ Dostęp realizowany jest przez konta wewnętrzne systemu i zakładane są przez administratora systemu.
 
-GitHub
-""""""
+Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x64. Na każdej maszynie zainstalowany jest Docker..
+
+
+
+
+* Środowisko bazodanowe
+
+* Środowisko aplikacyjne
+
+### Środowisko testowe
+
+### Środowisko pre-produkcyjne
+
+### Środowisko produkcyjne
+
+
+#### GitHub
+
 Dokumentacja do projektu jest zamieszczona na GitHub Pages i można przeczytać pod adresem https://doc.dexterlab.pl/
-TODO: Dopisać instrukcję instalacji i kjonfiguracji GitLab'a
-
-
-Środowisko Google Cloud Platform 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-W Google Cloud Platform znajduje się całość aplikacji zarówno środowiska testowe jak i aplikacji. Całość ma połączenie pomiędzy prywatnymi sieciami w celu zachowania odpowiedniego bezpieczeństwa.
-
-instance-1
-""""""""""
-
-Maszyna z systemem opracyjnym Debian 
-
-1,7 GB Memory / 10 GB Disk / europe-west3-c - Ubuntu 18.04.3 (LTS) x64
-
-Na instancji zainstalowany jest Docker.
 
 Maszyna będzie odpowiedzialna za hostowanie środowisk testowych bez użycia wysokiej dostępności i skalowalności.
 
