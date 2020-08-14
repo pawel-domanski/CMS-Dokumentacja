@@ -106,6 +106,7 @@ W tym miejscu mamy możliwość wpisania tematu i wiadomości. W przypadku, kied
 ## Lista wiadomości
 
 Z aplikacji FrontEnd jest możliwość wysłania przez każdego oglądającego wiadomości do prowadzących serwis. W tym miejscu są one dostępne.
+
 ![Lista wiadomości ze strony](/images/docs/docs_admin_15.png)
 
 ## Edycja i wysłanie odpowiedzi

@@ -72,6 +72,10 @@ entries:
       url: /technologia_db.html
       output: web, pdf
 
+    - title: Szczegółowy opis encji i atrybutów
+      url: /technologia_db_schemat.html
+      output: web, pdf
+
   - title: Instalacja
     output: web, pdf
     folderitems:
