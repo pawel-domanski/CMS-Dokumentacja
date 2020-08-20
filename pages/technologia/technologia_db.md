@@ -88,3 +88,9 @@ W MongoDB występują dwa sposoby podziałuy kolekcji na shardy i są to
  - podział z kluczem mieszanym .
 
 W obu przypadkach system wymaga od nas jakiego atrybutu którego będzie używał do podziału (shared key) i musi występować on w każdym dokumencie w kolekcji, dodatkowo na tym aktrybucie musi być założony indeks.
+
+## Zmiana podejścia do modelowania baz dokumentowych
+
+W przypadku użycia systemu relacyjnego musimy borykać się z takimi rzeczami jak zapewnienie więzów pomiędzy poszczegołnymi encjami. Przy zastosowaniu takiego rozwiązania mamy zapisane artykuły w jednej tabeli, a np komentarze w drugiej tabeli. W przypadku dużego systemu mkażde pobranie poszczególnego dokkumentu powoduje nie tylko zablokowanie tabeli z artykułami ale i tabeli z komentarzami. W przypadku kiedy mamy duży ruch na stronie powodować może to spore utrudnienia i w wyniku tego wolne działanie aplikacji. W przypadku zastosowania bazy dokumentowej mamy trochę inne podejście i dla danego artykułu jest jego reprezentacja w pojedyńczym dokumencie zarówno sama treść i rzeczy, które do niego przyleżą w ramach relacji. To jest w danym pojedyńczym dokumencie w kolekcji znajdować się będzie nasz kontent jak i komentarze. W tym przypadku jesteśmy bardziej elastyczni ponieważ użytkownik systemu może spokojnie działać w obrębie pojedyńczego dokumentu a nie blokować całej kolekcji.
+
+W tym miejscu należy zadać sobie pytanie czy potrzebujemy żeby wszystko co dotyczy naszego artykułu znajdowało się w jednym dokumencie. Otóż nie koniecznie, ponieważ nie powinniśmy przetrzymywać danych użytkownika i informacji, które potencjalnie mogłyby służyć do przetwarzania danych w sposób niezgodny z przeznaczeniem. W takim przypadku należy podejść do tego tematu jakby to była baza relacyjna i w dokumencie przetrzymywać referencje do innego obieku. W tym przypadku będzie to ObjectID obiektu powiązanego.
