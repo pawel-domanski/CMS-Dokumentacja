@@ -57,8 +57,6 @@ Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x
 Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x64. Na każdej maszynie zainstalowany jest Docker..
 
 
-
-
 * Środowisko bazodanowe
 
 * Środowisko aplikacyjne
