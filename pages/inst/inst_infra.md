@@ -39,10 +39,13 @@ Informacja o aplikacjach (obrazów Docker) na serwerze.
 
 ![Portainer 02](/images/insta/Portainer_02.png)
 
-**registry** - rejestr Dockera na potrzeby projektu. Rejestr *Docker* jest zabezpieczony hasłem żeby osoby niepowołane nie mogły się zalobować.
+**registry** - rejestr Dockera na potrzeby projektu. Rejestr *Docker* jest zabezpieczony hasłem żeby osoby niepowołane nie mogły się zalobować. Wykorzystujemy wewnęrzny rejestr gdzie prztrzymujemy nasze wszystkie dostępne gotowe aplikacje.
 
 **dexterlab_pl** - strona internetowa projektu oparta na systemie CMS Ghost. 
 
+**cms.dexterlab.pl** - adres strony gotowego produktu dla użytkowników końcowych.
+
+**backend.dezterlab.pl** - adres aplikacji dla pracowników
 
 Dostęp do zasobów znajdujących się na serwerze realizowany jest przez serwer Ngnix.
 
@@ -50,13 +53,17 @@ Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x
 
 #### Środowisko Google Cloud Platform
 
-**instance-1** - naszyna, na któej zainstalowane jest oprogramowanie CMS do testów.
-![instance-1](/images/insta/inst_infra_02.png)
+**instance-1** - naszyna, na któej zainstalowane jest oprogramowanie CMS do testów. Środowisko gdzie przeprowadzana jest instalacja wszystkich komponentów. 
 
+**instance-2** - 
+
+**instance-3** - zawiera kontentenery dla pierwszego węzeła dla replik bazy MongoDB (rs1)
+
+**instance-4** - zawiera kontentenery dla drugiego węzeła dla replik bazy MongoDB (rs2)
+
+**instance-2** - zawiera kontenery dla instrancji configuracyjnych i dla routera MongoDB
 
 Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x64. Na każdej maszynie zainstalowany jest Docker..
-
-
 
 
 * Środowisko bazodanowe
