@@ -8,7 +8,7 @@ sidebar: mydoc_sidebar
 permalink: inst_uat.html
 folder: insta
 ---
-# Instalacja środowiska UAT
+# Instalacja środowiska testowego
 
 ## Instalacja środowiska bazodanowego
 
@@ -53,7 +53,7 @@ W tym celu należy uruchomić
 
 `sudo vi /lib/systemd/system/docker.service`
 
-wyszukać **ExecStart** i dodać na końcu **-H tcp://192.168.186.27:4243**
+wyszukać **ExecStart** i dodać na końcu **-H tcp://0.0.0.0:4243**
 
 Zapisać plik i wyjść z edytora. Żeby zmiany były widoczne należy zrestartować serwis Docker.
 

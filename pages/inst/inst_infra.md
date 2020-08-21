@@ -61,29 +61,115 @@ Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x
 
 **instance-4** - zawiera kontentenery dla drugiego węzeła dla replik bazy MongoDB (rs2)
 
+**instance-5** - zawiera kontentenery dla APi naszej aplikacji i aplikacji dla pracowników.
 
 
+Wszystkie systemy działają pod kontrolą systemu operacyjnego Debian. Na każdej maszynie zainstalowany jest Docker..
 
-Oba systemy działają pod kontrolą systemu operacyjnego Ubuntu 18.04.3 (LTS) x64. Na każdej maszynie zainstalowany jest Docker..
+#### Przygotowanie maszyny do pracy
+
+Po przygotowaniu systemy operacyjnego do pracy (w przypadku środowisk chmurowych jest to wybór odpowiedniego obrazy) musimy przygotować instancje Docker do poprawnego działania. W tym celu należy zalgować się na każdą z maszyn i wykonać poolecenia poniżej. 
+
+Na początek musimy zaktualizować wszystkie pakiety, żebyśmy działali na odpowiednich wersjach.
+
+`sudo apt update`
+
+Następnie musimy zainstalować niezbędne pakiety do instalacji przez HTTPS
+
+`sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common`
+
+Dodajemy aktyalny klucz GPG dla Docker
+
+`curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -`
+
+Dodanie repozytoriów Dockera do lokalnych APT
+
+`udo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"`
+
+Uaktualniamy bazę pakietów
+
+`sudo apt update` 
+
+Instalujemy pakiet Docker
+
+`sudo apt install docker-ce`
+
+Uruchamiamy edytor i otwieramy plik 
+
+`sudo vi /lib/systemd/system/docker.service`
+
+w linii 
+
+`ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock` 
+
+na koniec dopisujmey 
+
+`-H tcp://0.0.0.0:4243`
+
+Zapisujemy plik, wychodzimy i restartujemy usługę. Następnie przechodzimy do **Portainer** i w zakładce ***Endpoints*** dodajemy nasz serwis docker. Należy wybrać połączenie używająć API.
+
+Na koniec jeszcze musimy zainstalować **docker-compose**
+
+`sudo apt install docker-compose` 
 
 
->>>>>>> refs/remotes/origin/master
-* Środowisko bazodanowe
+## Opis architektury technicznej rozwiązania
 
-* Środowisko aplikacyjne
+Poniżej opis środowis, tóre były użyte do wytworzenia gotowego produktu. W projekcie zalżało mi żeby można było zarówno skalować rozwiązanie jak i budować nowe środowiska.
+
+
 
 ### Środowisko testowe
 
+Środowisko testowe jest środowiskiem które zainstalowane jest na stacji roboczej programisty. Aby działać na takim środowisku należy zainstalować bazę MongoDB tak jak jest opisane pod tym linkiem https://docs.mongodb.com/manual/installation/
+
+API i aplikacje backendowe i frontendowe wymagają zainstalowania Node.JS w wersji 12 i klienta Git w celu pobrania źródeł programu. 
+
+Po wykonaniu powyższych czynności przygotowawczych  uruchamiamy konsole, przechodzimy do miejsca gdzie mamy zainstalować nasze oprogramowanie i wykonać kolejno 
+
+`git clone https://github.com/pawel-domanski/CMS-api.git`
+
+`git clone https://github.com/pawel-domanski/CMS-Frontend.git`
+
+`git clone https://github.com/pawel-domanski/CMS-backend.git`
+
+Następnie musimy przygotować plik .env w katalogu CMS-api/server/config (przykładowy plik jest zawarty w tym katalogu) należy uzupełnić zmienne swoimi parametrami.
+
+W katalogu CMS-Frontend/public/static i CMS-backend/public/static jest plik config.json w którym wpisujemy adres naszego api. W naszym przypadku wpisujemy adres http://localhost:3000 . 
+
+Mamy już oprogramowanie. Ze względu na to że są to 3 odzielne aplikacje to należy w uruchamiać w odzielnych konsolach.
+
+CMS-api uruchamiamy poprszez uruchomienie 
+
+`npm run dev`
+
+Aplikację CMS-Frontend jak i CMS-Backend uruchamiamy poprzez 
+
+`npm run serve`
+
+
 ### Środowisko pre-produkcyjne
+
+Środowisko pre-produkcyjne jest zainstalowane na pojedyńczej maszynie (może to być wirtualna) a przybliżony schemat przedstawiony jest na wysunku poniżej.
+
+![Środowisko pre-prod](/images/insta/insta_env_uat.png)
+
+Szczegółowy opis instalacji przedstawiony jest w dalszej części tego dokumentu. Środowisko UAT znajduje się na Instance-1
 
 ### Środowisko produkcyjne
 
+Środowisko produkcyjne składa się z jednego klastrta z dwoma replikami opartych na schardach dla systemu baz danych MongoDB. Jednego hosta z aplikacją backendową i API. Trzynodowego klastra Kubernates, na którym działa aplikacja dla klientów.
 
-#### GitHub
+Baza danych znajduje się na 3 wirtualnych hostach znajdujących się w różnych lokalizacjach, aby zdywersyfikować dostępnosć w przypadku awarii jednego ośrodka danych. 
 
-Dokumentacja do projektu jest zamieszczona na GitHub Pages i można przeczytać pod adresem https://doc.dexterlab.pl/
+![Środowisko produckyjne](/images/insta/insta_env_prd.png)
 
-Maszyna będzie odpowiedzialna za hostowanie środowisk testowych bez użycia wysokiej dostępności i skalowalności.
+Poniżej budowa klastra Kubernates opartego o 3 nody.
 
-TODO: Instrukcja instalacji środowiska testowego. Dla Mongo. Sprawdzić czy nie można podłączyć gitlaba do GCP żeby mógł klonować maszyny. Mongo może być przecież spreparowane na nasze potrzeby i zapisana w naszym rejestrze :) Nie musimy za kaym razem korzystać z sieciowej wersji bazy danych. Ba możemy nawet załadować specjalne dane, żeby już były załadowane. 
+![cluster-1](/images/insta/insta_arch_02.png)
+
+![Cluster-1 nodes](/images/insta/insta_arch_01.png)
+
+![Aplikacja](/images/insta/insta_arch_03.png)
+
 

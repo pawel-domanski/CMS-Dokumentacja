@@ -71,9 +71,25 @@ entries:
     - title: Baza danych
       url: /technologia_db.html
       output: web, pdf
+    
+    - title: Serwery aplikacyjne
+      url: /technologia_app.html
+      output: web, pdf
+
+    - title: Infrastruktura
+      url: /technologia_infra.html
+      output: web, pdf
+      
+    - title: Architektura systemu
+      url: /technologia_arch.html
+      output: web, pdf
 
     - title: Szczegółowy opis encji i atrybutów
       url: /technologia_db_schemat.html
+      output: web, pdf
+
+    - title: Szczegółowy opis API
+      url: /technologia_api.html
       output: web, pdf
 
   - title: Instalacja
@@ -88,6 +104,10 @@ entries:
       url: /inst_uat.html
       output: web, pdf
 
+    - title: Instalacja środowiska produkcyjnego
+      url: /inst_prd.html
+      output: web, pdf
+      
   - title: Dokumentacja dla użytkowników
     output: web, pdf
     folderitems:
